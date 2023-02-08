@@ -8,18 +8,17 @@ on:
 
 jobs:
   build:
-    name: validate
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v2
-          with:
-            node-version: "14"
-            cache: "npm"
-        # install dependencies
-        - run: npm ci
-        # run ESLint & Prettier
-        - run: npm run lint
-        # verify that there are no type and build errors
-        - run: npm run build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "npm"
+      # install dependencies
+      - run: npm ci
+      # run ESLint & Prettier
+      - run: npm run lint
+      # verify that there are no type and build errors
+      - run: npm run build
